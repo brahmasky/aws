@@ -1,2 +1,3 @@
-aws secretsmanager create-secret --name <NAME> --secret-string "<SECRETS>" --region <REGION>
+aws secretsmanager create-secret --region <REGION> --name <NAME> --secret-string '{"key1":"value1","key2":"value2"}'
+
 aws secretsmanager get-secret-value --secret-id <NAME> --region <REGION>
