@@ -1,0 +1,2 @@
+aws secretsmanager create-secret --name <NAME> --secret-string "<SECRETS>" --region <REGION>
+aws secretsmanager get-secret-value --secret-id <NAME> --region <REGION>
