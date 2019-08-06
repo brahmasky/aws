@@ -5,3 +5,5 @@ aws secretsmanager get-secret-value --secret-id <NAME> --region <REGION>
 aws secretsmanager list-secrets |jq '.[] | .[] |.Name'
 
 aws secretsmanager get-secret-value --secret-id <KEY_NAME> |jq '.SecretString'
+
+aws autoscaling describe-auto-scaling-instances |jq '.[] | .[] |(select(.AutoScalingGroupName|contains("<<KEYWORD>>"))) |.InstanceId, .AutoScalingGroupName'
