@@ -10,3 +10,7 @@ aws autoscaling describe-auto-scaling-instances |jq '.[] | .[] |(select(.AutoSca
 
 
 aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[?contains(AutoScalingGroupName, `<<KEYWORD>>`) == `true`].Instances[]'
+
+### list and terminate instances
+>aws ec2 describe-instances --filters "Name=tag:Name,Values=<<NAME_TAG>>" --query "Reservations[].Instances[].InstanceId"
+>aws ec2 terminate-instances --instance-ids <<INSTANCE_ID>>
