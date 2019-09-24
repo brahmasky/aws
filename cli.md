@@ -13,4 +13,7 @@ aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[?contain
 
 ### list and terminate instances
 >aws ec2 describe-instances --filters "Name=tag:Name,Values=<<NAME_TAG>>" --query "Reservations[].Instances[].InstanceId"
+
+>aws ec2 describe-instances --filters "Name=tag:Name,Values=<<NAME_TAG>> Name=instance-state-name,Values=running" --query "Reservations[].Instances[].InstanceId"
+
 >aws ec2 terminate-instances --instance-ids <<INSTANCE_ID>>
