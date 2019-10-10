@@ -1,3 +1,5 @@
+aws ec2 delete-tags --resources `id1` `id2` --tags Key=MaintenanceWindow
+
 aws secretsmanager create-secret --region `REGION` --name `NAME` --secret-string '{"key1":"value1","key2":"value2"}'
 
 aws --region `REGION` secretsmanager update-secret --secret-id `NAME` --secret-string '{"key1":"value1","key2":"value2"}'
