@@ -22,5 +22,6 @@ aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[?contain
 
 >aws ec2 terminate-instances --instance-ids <<INSTANCE_ID>>
 
-### desscribe instances with filter
+### desscribe volumes
 >aws ec2 describe-instances  --filters Name=block-device-mapping.device-name,Values=/dev/xvdg --query 'Reservations[*].Instances[*].[Tags[?Key==`Name`].Value,InstanceId,BlockDeviceMappings[*].DeviceName,BlockDeviceMappings[*].Ebs.VolumeId]' --output text
+> aws ec2 describe-volumes --filters "Name=attachment.device,Values=/dev/xvdg" --query "Volumes[*].Attachments[*].{Name:Device,ID:VolumeId}" --output table
