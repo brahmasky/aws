@@ -20,7 +20,8 @@ aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[?contain
 
 >aws ec2 describe-instances --filters "Name=tag:Name,Values=<<NAME_TAG>> Name=instance-state-name,Values=running" --query "Reservations[].Instances[].InstanceId"
 
->aws ec2 terminate-instances --instance-ids <<INSTANCE_ID>>
+>aws ec2 terminate-instances --instance-ids <<INSTANCE_ID>> 
+
 >aws ec2 describe-instances --region ap-southeast-2 --query "Reservations[*].Instances[*].[InstanceId, InstanceType, PrivateIpAddress, [Tags[?Key=='Name'].Value][0][0] , [Tags[?Key=='Role'].Value][0][0]]" --output table
 
 ### desscribe volumes
